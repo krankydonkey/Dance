@@ -25,6 +25,15 @@
     transition: max-height 0.2s ease-out;
 }
 
+.navigation {
+    background-color: #777;
+    color: white;
+    border: none;
+    margin: none;
+    padding: 10px;
+    float:left;
+}
+
 #events {
     margin: 10px;
     height: 500px;
