@@ -24,7 +24,7 @@ class App extends Component {
     
     return (
       <div id="events">
-        {events.map(event => <Event{...event}/>)}
+        {events.map(event => Event(event))};
       </div>
     );
   }
@@ -36,30 +36,22 @@ class Event extends Component {
     super(props);
 
     // Initial state
-    this.state = {
-      open: false,
-      maxHeight: 0
-    };
+    this.state = {open: false};
     this.toggle = this.toggle.bind(this);
   }
   // Toggles the status of open
   toggle() {
     this.setState({open: !this.state.open});
-    if (this.state.open) {
-      this.setState({maxHeight: 0});
-    } else {
-      this.setState({maxHeight: 60 + "px"});
-    }
   }
 
   render() {
     return (
       <div className="event">
-        <button className="event-btn" onClick={this.toggle}>
+        <button className="event btn" onClick={this.toggle}>
           <p>{this.props.name} - {this.props.ability}</p>
           <p><em>{this.props.start} - {this.props.end}</em></p>
         </button>
-        <div className="collapsible" style={{maxHeight: this.state.maxHeight}}>
+        <div className={this.state.open ? "expanded" : "collapsed"}>
           {this.props.description}
         </div>
       </div>
