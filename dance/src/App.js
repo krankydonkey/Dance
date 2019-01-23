@@ -43,25 +43,53 @@ class Event extends Component {
     this.toggle = this.toggle.bind(this);
   }
   // Toggles the status of open
-  toggle() {
+  toggle(description) {
     this.setState({open: !this.state.open});
     if (this.state.open) {
-      this.setState({maxHeight: 0});
+      description.style.maxHeight = description.scrollHeight + "px";
     } else {
-      this.setState({maxHeight: 60 + "px"});
+      description.style.maxHeight = 0;
     }
   }
 
   render() {
+    var description = 
+      <div className="collapsible">
+        {this.props.description}
+      </div>;
     return (
       <div className="event">
-        <button className="event-btn" onClick={this.toggle}>
+        <button className="event-btn" onClick={this.toggle(description)}>
           <p>{this.props.name} - {this.props.ability}</p>
           <p><em>{this.props.start} - {this.props.end}</em></p>
         </button>
-        <div className="collapsible" style={{maxHeight: this.state.maxHeight}}>
-          {this.props.description}
-        </div>
+        {description}
+      </div>
+    );
+  }
+}
+ 
+// Ignore This
+class Collapsible extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({open: !this.state.open});
+    if (this.state.open) {
+      this.style.maxHeight = this.scrollHeight + "px";
+    } else {
+      this.style.maxHeight = 0;
+    }
+  }
+
+  render() {      
+    return (
+      <div className="collapsible">
+        {this.props.description}
       </div>
     );
   }
