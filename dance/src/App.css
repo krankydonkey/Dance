@@ -54,7 +54,7 @@
   width: 500px;
   padding: 0 18px;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease;
 }
 
 #events {
