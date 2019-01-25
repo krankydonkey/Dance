@@ -1,4 +1,4 @@
-function make_event(event) {
+function make_event(event, eventNo) {
     /* 
     <button class="collapsible">
         <p>event_name - level</p>
@@ -29,7 +29,9 @@ function make_event(event) {
     info.appendChild(textField);
     events.appendChild(button);
     events.appendChild(info);
-
+    if (eventNo == 0) {
+        button.style.margin = 0;
+    }
 
     button.addEventListener("click", function() {
         if (info.style.maxHeight){
@@ -38,6 +40,15 @@ function make_event(event) {
             info.style.maxHeight = info.scrollHeight + "px";
         } 
     });
+}
+
+function make_style(style) {
+    var events = document.getElementById("styles");
+    var button = document.createElement("button");
+    button.setAttribute("class", "style");
+    var styleName = document.createTextNode(style.name);
+    button.appendChild(styleName);
+    events.appendChild(button);
 }
 
 const events = [    
@@ -59,7 +70,18 @@ const events = [
     }
 ];
 
+const styles = [
+    {
+        "name": "Zouk"
+    },
+    {
+        "name": "Salsa"
+    }
+]
+for (var i = 0; i < styles.length; i++) {
+    make_style(styles[i]);
+}
 for (var i = 0; i < events.length; i++) {
-    make_event(events[i]);
+    make_event(events[i], i);
 }
     

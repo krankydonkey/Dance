@@ -25,17 +25,31 @@
     transition: max-height 0.2s ease-out;
 }
 
-.navigation {
+.style {
+    width: 100%;
+    padding: 10px;
     background-color: #777;
     color: white;
     border: none;
-    margin: none;
-    padding: 10px;
-    float:left;
+}
+
+.style:hover {
+    background-color: #555;
+}
+
+#selector {
+    display: flex;
+    flex-direction: row;
+}
+
+#styles {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
 }
 
 #events {
-    margin: 10px;
+    margin: 0 10px;
     height: 500px;
     width: 556px;
     overflow-y: auto;
