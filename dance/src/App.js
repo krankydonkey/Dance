@@ -49,9 +49,9 @@ class Collapsible extends Component {
           <p>{this.props.name} - {this.props.ability}</p>
           <p><em>{this.props.start} - {this.props.end}</em></p>
         </button>
-        <div className="collapsible" style={this.state.open ? {maxHeight: 350} : {maxHeight: 0}}>
+        <div className={`collapsible ${this.state.open ? "open" : "closed"}`} >
           {this.props.description}
-        </div>;
+        </div>
       </div>
     );
   }

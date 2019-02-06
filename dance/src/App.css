@@ -57,6 +57,14 @@
   transition: max-height 0.2s ease;
 }
 
+.open {
+  max-height: 100px;
+}
+
+.closed {
+  max-height: 0;
+}
+
 #events {
   margin: 10px;
   height: 500px;
